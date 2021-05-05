@@ -5,6 +5,7 @@ import Form from './component/Form';
 import Info from './component/Info';
 import Weather from './component/Weather';
 import Movies from './component/Movies';
+import Header from './component/header';
 
 class App extends React.Component {
   constructor (props)
@@ -27,7 +28,8 @@ class App extends React.Component {
     const expressTheComenData = `${process.env.REACT_APP_SERVER}/weather?lat=${weatherReq.data[0].lat}&lon=${weatherReq.data[0].lon}`;
     const expressReq = await axios.get(expressTheComenData);
     console.log('weather', expressReq.data);
-    const urlMovies = `https://api.themoviedb.org/3/search/movie?api_key=e1e87cba462f5119dbeb3f736b910fa9&query=paris`;
+    console.log(process.env.MOVIES_KEY+''+this.state.query);
+    const urlMovies = `https://api.themoviedb.org/3/search/movie?api_key=e1e87cba462f5119dbeb3f736b910fa9&query=${this.state.query}`;
     const moviesReq = await axios.get(urlMovies);
     console.log(moviesReq.data);
     // const weatherExpressUrl = `${process.env.REACT_APP_SERVER}/weather?lat=&lon=`;
@@ -64,6 +66,7 @@ updateQuery = (e) => {
     return (
       <div>
         <h1>City Explorer</h1>
+        <Header />
         <Form getLoc={this.getLoc} updateQuery={this.updateQuery} />
         
       {this.state.show &&
@@ -71,8 +74,8 @@ updateQuery = (e) => {
       <Info city_name={this.state.data.display_name} />
         <Map lon ={this.state.data.lon} lat = {this.state.data.lat} />
         <Weather weatherInfo = {this.state.weatherData}  />
-        { this.state.moviesData &&
-        <Movies moviesData={this.state.moviesData}/>}
+        
+        <Movies moviesData={this.state.moviesData}/>
         </>
         }
       </div>
