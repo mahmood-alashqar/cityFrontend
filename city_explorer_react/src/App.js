@@ -27,6 +27,7 @@ class App extends React.Component {
     console.log('weather', weatherReq.data[0].lon);
     const expressTheComenData = `${process.env.REACT_APP_SERVER}/weather?lat=${weatherReq.data[0].lat}&lon=${weatherReq.data[0].lon}`;
     const expressReq = await axios.get(expressTheComenData);
+    console.log('weather', weatherReq.data[0].lon);
     console.log('weather', expressReq.data);
     console.log(process.env.MOVIES_KEY+''+this.state.query);
     const urlMovies = `https://api.themoviedb.org/3/search/movie?api_key=e1e87cba462f5119dbeb3f736b910fa9&query=${this.state.query}`;
