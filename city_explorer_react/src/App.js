@@ -30,7 +30,7 @@ class App extends React.Component {
     console.log('weather', weatherReq.data[0].lon);
     console.log('weather', expressReq.data);
     console.log(process.env.REACT_APP_MOVIES_KEY+''+this.state.query);
-    const urlMovies = `http://localhost:3030/movies?query=${this.state.query}`;
+    const urlMovies = `${process.env.REACT_APP_SERVER}/movies?query=${this.state.query}`;
     const moviesReq = await axios.get(urlMovies);
     console.log(this.state.query);
     // const weatherExpressUrl = `${process.env.REACT_APP_SERVER}/weather?lat=&lon=`;

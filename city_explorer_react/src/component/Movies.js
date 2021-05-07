@@ -15,7 +15,7 @@ class Movies extends React.Component{
             
             <p>
                 <img src= {data.image_url} alt='' />
-                {data.image_url} 
+                
                         {data.title} 
                         {data.overview} 
                         {data.average_votes} 
