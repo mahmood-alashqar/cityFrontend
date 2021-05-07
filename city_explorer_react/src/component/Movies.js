@@ -9,11 +9,13 @@ class Movies extends React.Component{
         return(
             <>
                 
-            {this.props.moviesData.results.map( data => {
+            {this.props.moviesData.map( data => {
             
             return ( <> 
             
-            <p>{data.image_url} 
+            <p>
+                <img src= {data.image_url} alt='' />
+                {data.image_url} 
                         {data.title} 
                         {data.overview} 
                         {data.average_votes} 
