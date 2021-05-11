@@ -73,7 +73,7 @@ updateQuery = (e) => {
       {this.state.show &&
       <>
       <Info city_name={this.state.data.display_name} />
-        <Map lon ={this.state.data.lon} lat = {this.state.data.lat} />
+        <Map lon ={this.state.data.lon} lat = {this.state.data.lat} city_name={this.state.data.display_name} />
         <Weather weatherInfo = {this.state.weatherData}  />
         
         <Movies moviesData={this.state.moviesData}/>

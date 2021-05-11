@@ -2,6 +2,7 @@ import React from 'react';
 import img from '../Assets/movies.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
 
 
 
@@ -12,7 +13,7 @@ class Movies extends React.Component{
     render(){
         
         return(
-            <>
+            <Row >
                 
             {this.props.moviesData.map( data => {
             if (data.image_url === 'there is no image' ){
@@ -42,14 +43,8 @@ class Movies extends React.Component{
                         </>
                 
             ) })}
-            </>
-        //     
-        //     
-        //     
-        //      
-        //      
-        //       <Button variant="primary">Go somewhere</Button>
-        //  
+            </Row >
+    
         )
     }
 }
