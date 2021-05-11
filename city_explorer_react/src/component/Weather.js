@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Badge from 'react-bootstrap/Badge';
 
 export default class Weather extends Component {
     render() {
@@ -8,8 +9,14 @@ export default class Weather extends Component {
             this.props.weatherInfo.map(data => {
             return (<div>
                
-                <p>{data.date} </p>
-                <p> {data.description} </p>
+                {/* <p>{data.date} </p> */}
+                {/* <p> {data.description} </p> */}
+                <Badge pill variant="primary">
+                {data.date}
+  </Badge>{' '}
+  <Badge pill variant="secondary">
+  {data.description}
+  </Badge>{' '}
             </div>)
             })
         }
